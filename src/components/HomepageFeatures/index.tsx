@@ -3,6 +3,24 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
+// Hero/Intro Section
+function HeroSection() {
+  return (
+    <section className={clsx(styles.heroSection, 'margin-bottom--xl')}>
+      <div className="container text--center">
+        <h1 className={styles.projectTitle}>Tugeme</h1>
+        <p className={styles.projectTagline}>
+          Tugeme is an immunization system (web and mobile) designed to improve vaccination rates and tracking in Uganda.
+        </p>
+        <p className={styles.projectPurpose}>
+          <strong>Docs Purpose:</strong> Document all frontend features and serve as the single source of truth for builds and versioning. <br />
+          <span className={styles.audience}>Target audience: Internal teams</span>
+        </p>
+      </div>
+    </section>
+  );
+}
+
 type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -11,32 +29,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Comprehensive Immunization Tracking',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Track vaccination schedules, patient records, and coverage analytics in real time. Tugeme ensures no one is left behind in Uganda's immunization efforts.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Unified Web & Mobile Experience',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Access Tugeme from any device. Our responsive design and cross-platform support empower health workers and administrators everywhere.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Reliable Documentation & Versioning',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        This documentation is the single source of truth for all frontend features, builds, and version history—ensuring consistency and clarity for internal teams.
       </>
     ),
   },
@@ -44,7 +59,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({title, Svg, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--4', styles.featureCard)}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
@@ -58,6 +73,8 @@ function Feature({title, Svg, description}: FeatureItem) {
 
 export default function HomepageFeatures(): ReactNode {
   return (
+    <>
+      <HeroSection />
     <section className={styles.features}>
       <div className="container">
         <div className="row">
@@ -67,5 +84,6 @@ export default function HomepageFeatures(): ReactNode {
         </div>
       </div>
     </section>
+    </>
   );
 }
